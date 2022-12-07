@@ -1,0 +1,20 @@
+h3{
+    margin-left: 220px;
+    font-weight: bold;
+    font-size: 30px;
+    
+  }
+  .form-label{
+    color: #000;
+  }
+    section{
+      background-color: rgb(255, 255, 255);
+      margin-left: 180px;
+      margin-top: 70px;
+      border-radius: 20px;
+      width: 75%;
+      padding: 20px;
+      height: auto;
+      margin-bottom: 50px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }

@@ -1,0 +1,23 @@
+<app-header-back></app-header-back>
+<app-nav-back></app-nav-back>
+<div class="container-fluid page-body-wrapper">
+<app-side-back></app-side-back>
+<router-outlet></router-outlet>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  
+    <br><br><br><br><br><br>
+    <form #f="ngForm" >
+    <h3>Add rate</h3>
+    <ngb-rating [(rate)]="currentRate" name="rate"[(ngModel)]="rate.rate" #c="ngModel"></ngb-rating>
+    
+    <hr />
+    <pre>Rate: <b>{{currentRate}}</b></pre>
+    <button class="btn btn-secondary btn-rounded" [disabled]="f.invalid" (click)="save()" >
+        Ajouter
+      </button>
+      </form>
+    </div>
+</div>
+</div>
+<app-footer-back></app-footer-back>

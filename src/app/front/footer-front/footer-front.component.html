@@ -1,0 +1,56 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright © 2036 <a href="#"></a> Enjoy it together. All rights reserved. 
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="/assets/cssf/fontawesome.css">
+<link rel="stylesheet" href="/assets/cssf/templatemo-woox-travel.css">
+<link rel="stylesheet" href="/assets/cssf/owl.css">
+<link rel="stylesheet" href="/assets/cssf/animate.css">
+<link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 580 Woox Travel
+
+https://templatemo.com/tm-580-woox-travel
+
+-->
+
+
+<!-- ***** Preloader Start ***** -->
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="../jquery/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../assets/jsf/isotope.min.js"></script>
+<script src="../assets/jsf/owl-carousel.js"></script>
+<script src="../assets/jsf/wow.js"></script>
+<script src="../assets/jsf/tabs.js"></script>
+<script src="../assets/jsf/popup.js"></script>
+<script src="../assets/jsf/custom.js"></script>
+<script>
+function bannerSwitcher() {
+next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+if (next.length) next.prop('checked', true);
+else $('.sec-1-input').first().prop('checked', true);
+}
+
+var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+$('nav .controls label').click(function() {
+clearInterval(bannerTimer);
+bannerTimer = setInterval(bannerSwitcher, 5000)
+});
+</script>
+

@@ -1,0 +1,96 @@
+<app-header-back></app-header-back>
+<app-nav-back></app-nav-back>
+<div class="container-fluid page-body-wrapper">
+    <app-side-back></app-side-back>
+    <router-outlet></router-outlet>
+
+    
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <h2 class="text-light primary py-3">Liste des amis</h2>
+
+        <div class="d-flex">
+            <button class="btn btn-success" (click)="add()"data-bs-toggle="modal" data-bs-target="#exampleModal">Add Amis</button>&nbsp;
+           
+
+        </div>
+    </div>
+</nav>
+
+<!---table-->
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">A.Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allamisdata">
+            <td>{{data.id}}</td>
+            <td>{{data.nom}}</td>
+            <td>{{data.prenom}}</td>
+            <td>{{data.adresse}}</td>
+            <td>{{data.email}}</td>
+            <td>
+                <button class="btn btn-info"(click)="edit(data)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button class="btn btn-danger"(click)=" deleteamis(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>        
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="background:blue;" class="modal-header">
+          <h5 style="color:aliceblue;font-size:20px;margin-left:200px;font-weight: 620;" class="modal-title" id="exampleModalLabel">Ami</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+            <div class="modal-group">
+            <form [formGroup]="formValue">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nom</label>
+              <input type="nom" formControlName="nom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre nom">
+              <small *ngIf="formValue.get('nom')?.invalid && formValue.get('nom')?.touched"class="text-danger">Nom is required</small>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Prenom</label>
+                <input type="nom" formControlName="prenom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre prenom">
+                <small *ngIf="formValue.get('prenom')?.invalid && formValue.get('prenom')?.touched"class="text-danger"> Prenom is required</small>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Adresse</label>
+                <input type="nom" formControlName="adresse" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter votre adresse">
+                <small *ngIf="formValue.get('adresse')?.invalid && formValue.get('adresse')?.touched"class="text-danger">Adresse is required</small>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email">
+                <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched"class="text-danger">Email is required</small>
+            </div>
+          
+          </form>
+        <div class="modal-body">
+        
+        </div>
+        <div style="background:blue ;" class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showadd" type="button"(click)="addamis()" class="btn btn-success">Add</button>
+          <button *ngIf="showupdate" type="button"(click)="update()" class="btn btn-success">Update</button>
+ </div>
+<app-footer-back></app-footer-back>
+

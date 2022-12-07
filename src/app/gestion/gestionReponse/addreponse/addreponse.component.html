@@ -1,0 +1,24 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form #f="ngForm">
+        <div class="modal-body">
+            <textarea class="form-control" id="textAreaExample" rows="4" placeholder="Ajouter une réponse..."
+           style="background: #fff;" type="text" name="reponse" [(ngModel)]="reponse.reponse" #r="ngModel" required minlength="3" maxlength="100"></textarea>
+        </div>
+        <div class="alert alert-danger" *ngIf="r.invalid && r.touched">
+            <div *ngIf="r.errors?.['required']"> reponse is a required field</div>
+            <div *ngIf="r.errors?.['minlength']"> reponse minlength is equal to 3</div>
+            <div *ngIf="r.errors?.['maxlength']"> reponse maxlength is equal to 100</div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light btn-rounded" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary btn-rounded" [disabled]="f.invalid" (click)="save()">Ajouter</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>

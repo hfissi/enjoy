@@ -1,0 +1,47 @@
+
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/imagesf/iconn.png"  style="width:100px;float: left;"   alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    
+                    <ul class="nav">
+                        <li><a routerLink="/home" class="active">Home</a></li>
+                        <li><a routerLink="/about">About</a></li>
+                        <li><a routerLink="/deals">Voyages</a></li>
+                        <li><a routerLink="/reservation">Reservation</a></li>
+                        <li><a routerLink="/feed">Contact</a></li>
+                       <li> <a> <button type="button" class="btn btn-info px-3 " style ="color: #fff;" data-bs-target="#exampleModal" data-bs-toggle="modal">Login</button> </a></li>
+                       <li> 
+                        <div class="imgprofil">
+                        <div class="dropdown"> <div class="profile"> <img class="dropbtn" src="./assets/imagesf/profil.gif"> <div class="dropdown-content"> 
+                            <ul> 
+                                <li><a routerLink="/profil"><i class='bx bx-cog' ></i><span>Settings</span></a></li> 
+                                <li><a routerLink="/profil"><i class='bx bx-user'></i><span>Profil</span></a></li> 
+                                <li><a routerLink="/messages"><i class='bx bx-cog' ></i><span>Inbox</span></a></li> 
+                                <li><a routerLink="/home"><i class='bx bx-cog' ></i><span>Logout</span></a></li> 
+                            </ul>
+                         </div>
+                         </div>
+                       </div>
+                </div> 
+                       </li>      
+                    </ul>   
+
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <app-login></app-login>
+  

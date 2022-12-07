@@ -1,0 +1,30 @@
+<app-header-back></app-header-back>
+<app-nav-back></app-nav-back>
+<div class="container-fluid page-body-wrapper">
+    <app-side-back></app-side-back>
+    <router-outlet></router-outlet>
+
+<form #f="ngForm">
+    <br> <br> <br> <br> <br> <br><br> <br> <br>
+    <div class="d-flex flex-start w-100">
+        <div class="form-outline w-100">
+            <textarea class="form-control" id="textAreaExample" rows="4" placeholder="Ajouter une reponse..." data-bs-toggle="collapse"
+                href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                style="background: #fff;" type="text" name="reponse" [(ngModel)]="reponse.reponse" #r="ngModel" required minlength="3" maxlength="100"></textarea>
+                <br>
+        </div>
+        
+        <div class="alert alert-danger" *ngIf="r.invalid && r.touched">
+            <div *ngIf="r.errors?.['required']"> reponse is a required field</div>
+            <div *ngIf="r.errors?.['minlength']"> reponse minlength is equal to 3</div>
+            <div *ngIf="r.errors?.['maxlength']"> reponse maxlength is equal to 100</div>
+          </div>
+        
+    </div>
+    <div class="float-end mt-2 pt-1" class="collapse" id="collapseExample">
+        <button type="button" class="btn btn-primary btn-rounded" [disabled]="f.invalid" (click)="save()">Post reponse</button>
+        <button type="button" class="btn">Cancel</button>
+    </div>
+</form>
+</div>
+<app-footer-back></app-footer-back>

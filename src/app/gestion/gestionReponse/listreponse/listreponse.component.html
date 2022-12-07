@@ -1,0 +1,53 @@
+<app-header-back></app-header-back>
+<app-nav-back></app-nav-back>
+<div class="container-fluid page-body-wrapper">
+    <app-side-back></app-side-back>
+    <router-outlet></router-outlet>
+    <section style="background-color: #e7dfde;">
+        <div class="container my-5 py-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="card text-dark">
+                        <div class="card-body p-4">
+                            <h4 class="mb-0">Responses</h4>
+                            <p class="fw-light mb-4 pb-2">Latest responses section by users</p>
+                            <a routerLink="/addrr" class="link-muted"><span
+                                class="badge bg-success">Add</span></a>
+                                <br><br>
+                            <div class="d-flex flex-start" *ngFor="let r of listreponse;let i = index">
+                                <img class="rounded-circle shadow-1-strong me-3" src="{{r.photo}}" alt="avatar"
+                                style="width: 5rem; height: 5rem;" />
+                                <div>
+                                    <h6 class="fw-bold mb-1">{{r.membre}}</h6>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <p class="mb-0">
+                                            {{r.date}}
+                                        </p>
+                                    </div>
+                                    <p class="mb-0">
+                                       <strong style="color: #3e5bda;">@</strong> {{r.commentaire}}
+                                    </p>
+                                    <br>
+                                    <p class="mb-0">
+                                        {{r.reponse}}
+                                    </p>
+                                    <div>
+                                        <a [routerLink]="['/updateRepons',r.id]" class="link-muted"><span
+                                            class="badge bg-primary">Update</span></a>
+                                <a routerLink="/listr" class="link-muted"><span
+                                        class="badge bg-danger" style="margin-left:10px ;" (click)="delete(r)" >Delete</span></a>
+                            
+                                    </div>
+                                    <br><br>
+                                </div>
+                                <hr class="my-0" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-footer-back></app-footer-back>

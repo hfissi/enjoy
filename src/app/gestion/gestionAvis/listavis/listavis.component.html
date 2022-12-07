@@ -1,0 +1,50 @@
+<app-header-back></app-header-back>
+<app-nav-back></app-nav-back>
+<div class="container-fluid page-body-wrapper">
+    <app-side-back></app-side-back>
+    <router-outlet></router-outlet>
+    <section style="background-color: #e7dfde;">
+    <div class="content-wrapper">
+        <div class="container my-5 py-5">
+              
+
+                    <div class="row">
+                        <div>
+                            <h4 class="mb-0">Recent rates</h4>
+                        <p class="fw-light mb-4 pb-2">Latest rates section by users</p>
+                        <a routerLink="/adda"  class="link-muted"><span
+                            class="btn btn-success btn-rounded">Add</span></a>
+                        </div>
+                        <div class="col-md-3" *ngFor="let a of listavis;let i = index">
+                            
+                          <div class="card" style="width: 20rem;">
+                            
+                            <img src="{{a.photo}}" class="rounded-circle shadow-1-strong me-3" style="width: 5rem;" alt="avatar">
+                            <div class="card-body">
+                              
+                                <h5 class="card-title">{{a.amis}}</h5>
+                                <p class="card-text">
+                                    Rate : {{a.rate}}<i class="fas fa-star" style="color: #fcff42;"></i>
+                                </p>
+            
+                             <div class="third mt-4">
+                    
+                                <a [routerLink]="['/updateRate',a.id]"  class="link-muted"><span
+                                    class="btn btn-primary btn-rounded">Update</span></a>
+                                <a routerLink="/lista" class="link-muted"><span
+                                    class="btn btn-danger btn-rounded" (click)="delete(a)">Delete</span></a>
+                            
+                             
+                             </div>
+                             
+                            </div>
+                          </div>
+                        </div>
+
+            </div>
+        </div>
+</div>
+</section>
+</div>
+<app-footer-back></app-footer-back>
+
