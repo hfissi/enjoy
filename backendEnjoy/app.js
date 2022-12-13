@@ -5,19 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var commentaireRouter = require('./controllers/commentaire');
-var usersRouter=require('./controllers/users');
-var avisRouter = require('./controllers/avis');
-var reponseRouter = require('./controllers/reponse');
-var registerRouter = require('./controllers/register');
+var commentaireRouter = require('./routes/commentaire');
+var userRouter = require('./routes/user');
+var avisRouter = require('./routes/avis');
+var reponseRouter = require('./routes/reponse');
 var app = express();
 
 // connect to database
 const db = require("./models");
 db.sequelize.sync().then(()=>{console.log("db connected")});
 //server cors configuration
-var cors=require("cors");
-app.use(cors());
+var cors = require("cors");
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:4200']
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,11 +32,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/commentaire', commentaireRouter);
 app.use('/avis', avisRouter);
 app.use('/reponse', reponseRouter);
-app.use('/register', registerRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

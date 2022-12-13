@@ -23,16 +23,6 @@ prenom:any;
         console.log(d);
       }
     )
-   
-    // this.s.getUserById(this.id).subscribe(
-    //   (d)=>{
-    //     this.users=d;
-    //     this.nom=this.users.nom;
-    //     this.prenom=this.users.prenom;
-
-    //   }
-    // )
-
 }
   add(f:any){
     this.u.addUser(f).subscribe(

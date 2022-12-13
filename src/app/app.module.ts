@@ -58,20 +58,11 @@ import { AddComponent } from './register/add/add.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
-    MatInputModule,
     NgbModule,
  
     

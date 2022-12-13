@@ -84,15 +84,6 @@ module.exports = sequelize => {
       comment: null,
       field: "genre"
     },
-    login: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "login"
-    },
     password: {
       type: DataTypes.STRING(30),
       allowNull: false,

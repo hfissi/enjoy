@@ -14,10 +14,15 @@ import { AjoutCommentComponent } from './gestion/gestionCommentaire/ajout-commen
 import { AjoutReponseComponent } from './gestion/gestionReponse/ajout-reponse/ajout-reponse.component';
 import { AmisComponent } from './back/amis/amis.component';
 import { AddComponent } from './register/add/add.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {path: 'crud',component: UsersComponent},
-  {path: 'admin',component: BackComponent},
+  {
+    path: 'admin',
+    component: BackComponent,
+    canActivate: [AuthGuard]
+  },
   {path:'home',loadChildren:()=>import('./front/front-routing.module').then(m=>m.FrontRoutingModule)},
   {path: 'addc',component: AddcommentComponent},
   {path: 'addr',component: AddreponseComponent},

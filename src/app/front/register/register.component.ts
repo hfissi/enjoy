@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register.service';
 import { ConfirmPasswordValidator } from "./ConfirmPasswordValidator";
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,16 +18,15 @@ export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
   public errorMsg!: string;
 
-  constructor(private fb: FormBuilder , private u:RegisterService) { }
+  constructor(
+    private fb: FormBuilder,
+    private u:RegisterService) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
   
-      lastName:['', [Validators.required, Validators.maxLength(20),Validators.minLength(2)]],
-      firstName:['', [Validators.required, Validators.maxLength(20),Validators.minLength(2)]],
-      login:['', [Validators.required, Validators.maxLength(20),Validators.minLength(5)]],
-    
-      emailFormControl :['',[Validators.required, Validators.email]],
+      username:['', [Validators.required, Validators.maxLength(20),Validators.minLength(2)]],
+      email :['',[Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
         //Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
@@ -41,9 +42,11 @@ export class RegisterComponent implements OnInit {
     
   }
   add(f:any){
-    this.u.addUser(f).subscribe(
-      ()=>{
-        console.log('succes')
+    const {confirmPassword, ...form} = f
+    this.u.addUser(form).subscribe(
+      () => {
+        this.registerForm.reset();
+        console.log('user created');
       }
     )
   }

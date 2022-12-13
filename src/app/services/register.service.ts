@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterService {
 
   constructor(private http:HttpClient) {}
-  addUser(d:any){
-    return this.http.post('http://localhost:3000/register',d)
-}
+  
+  addUser(d:any) {
+    return this.http.post('http://localhost:3000/user/register',d)
+  }
 }

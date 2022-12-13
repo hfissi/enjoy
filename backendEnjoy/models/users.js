@@ -26,8 +26,7 @@ module.exports = sequelize => {
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
-      autoIncrement: false,
-      comment: null,
+      unique: true,
       field: "email"
     },
     password: {
